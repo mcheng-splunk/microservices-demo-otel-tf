@@ -19,3 +19,10 @@ To enable the RUM Instrumentation,
 1. Open the `main.tf` file
 2. Set the `RUM_ENABLED` flag to "true". Default is "false" as defined inside `terraform.tfvars`
 3. Modify the `RUM_REALM` `RUM_AUTH` `RUM_APP_NAME` `RUM_ENVIRONMENT` accordingly
+
+
+## Enable Splunk OTEL Instrumentation
+
+To enable the OTEL Instrumentation, 
+
+1. Modify the `SPLUNKREALM` `SPLUNKACCESSTOKEN` `CLUSTERNAME` accordingly 
