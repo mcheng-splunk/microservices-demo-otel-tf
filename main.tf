@@ -29,17 +29,27 @@ module "loadgenerator" {
 module "frontend" {
   source = "./modules/frontend"
 
-  # RUM Fields - If the RUM_ENABLED is set to "true", the RUM_<VARIABLES> must be set according.
-  # RUM_ENABLED = "false"
-  # RUM_REALM = "us0"
-  # RUM_AUTH" = null
-  # RUM_APP_NAME" = null
-  # RUM_ENVIRONMENT" = null
+  ## RUM Fields - If the RUM_ENABLED @ terraform.tfvars is set to "true", the RUM_<VARIABLES> must be set according.
+  RUM_ENABLED = var.RUM_ENABLED
+  RUM_REALM = var.RUM_REALM
+  RUM_AUTH = var.RUM_AUTH
+  RUM_APP_NAME = var.RUM_APP_NAME
+  RUM_ENVIRONMENT = var.RUM_ENVIRONMENT
 }
 
 module "emailservice" {
   source = "./modules/emailservice"
 }
+
+module "otel" {
+  source = "./modules/otel"
+  SPLUNKREALM = var.SPLUNKREALM
+    
+  SPLUNKACCESSTOKEN = var.SPLUNKACCESSTOKEN
+    
+  CLUSTERNAME = var.CLUSTERNAME
+}
+
 
 module "currencyservice" {
   source = "./modules/currencyservice"
